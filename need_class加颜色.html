@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name=viewport content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'>
+    <title>推推</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+  </head>
+  <body>
+    <div id="app" v-cloak >
+        <div class="need_head">
+            <div class="tit" v-for="(tab,index) in tabs" @click="add(index)" :class="{'active_tit':index==current}">{{tab.tit}}</div>
+        </div>
+        
+        <ul class="main_list">
+            <li v-for="item in list[current]">
+                <a :href="item.url">
+                    <lock-div :bg="item.img" class="left"></lock-div>
+                    <div class="right">
+                        <div class="txt">{{item.txt}}</div>
+                        <span class="btn2" :class="{'ing_c':item.ing,
+                        'done_c':item.done,
+                        'ready_c':item.ready,
+                        'published_c':item.published
+                        }">{{item.option}}</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+  
+    </div>
+  </body>
+</html>
+
+<script src="js/vue2.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/vue-resource.js"></script>
+<script src="js/common.js"></script>
+<script>
+           
+    var vm = new Vue({
+      el: '#app',
+      methods: {
+        add: function (message) {
+            this.current=message
+        }
+      },
+      data: {
+        current:0,
+        tabs:[
+            {tit:'全部'},
+            {tit:'待发布'},
+            {tit:'已发布'},
+            {tit:'确认中'},
+            {tit:'已完成'}
+        ],
+        list:[
+
+                [
+                    {
+                    url:"#",
+                    img:'images/b1.jpg',
+                    txt:'托福：通向美好未来，需要的不只是许可，而是能力',
+                    option:'确认中',
+                    ing:'true'
+
+                },{ 
+                    url:"#",
+                    img:'images/b2.jpg',
+                    txt:'金立携手达康书记，以#安全的名义#…',
+                    option:'已完成',
+                    done:'true'
+                },{ 
+                    url:"#",
+                    img:'images/b1.jpg',
+                    txt:'托福：通向美好未来，需要的不只是许可，而是能力',
+                    option:'待发布',
+                    ready:'true'
+                },{ 
+                    url:"#",
+                    img:'images/b2.jpg',
+                    txt:'托福：通向美好未来，需要的不只是许可，而是能力',
+                    option:'已发布',
+                    published:'true'
+                },
+            ],[
+                {
+                url:"#",
+                img:'images/b1.jpg',
+                txt:'托福：通向美好未来，需要的不只是许可，而是能力',
+                option:'待发布',
+                ready:'true'
+                },
+            ],[
+                {
+                url:"#",
+                img:'images/b1.jpg',
+                txt:'托福：通向美好未来，需要的不只是许可，而是能力',
+                option:'已发布',
+                published:'true'
+                },
+            ],[
+                {
+                url:"#",
+                img:'images/b1.jpg',
+                txt:'托福：通向美好未来，需要的不只是许可，而是能力',
+                option:'确认中',
+                ing:'true'
+            },
+            ],[
+                {
+                url:"#",
+                img:'images/b1.jpg',
+                txt:'托福：通向美好未来，需要的不只是许可，而是能力',
+                option:'已完成',
+                done:'true'
+            },
+            ],
+    ]
+    
+  }
+})
+
+
+
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name=viewport content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'>
+    <title>文件列表</title>
+    <style>
+    body{padding: 10px;}
+    table{ border-collapse: collapse; width: 100%; border: 1px #ccc solid;}
+    td,th{border: 1px #ccc solid; padding: 5px; font-size: 12px;}
+    td:nth-child(1),td:nth-child(2){white-space: nowrap;}
+    </style>
+  </head>
+  <body>
+    <h1>推推</h1>
+
+      <table id="app" v-cloak>
+        <tr>
+          <th>描述</th>
+          <th>链接</th>
+          <th>备注</th>
+        </tr>
+        <tr v-for="item in list">
+          <td>{{item.tit}}</td>
+          <td><a :href="item.url">{{item.url}}</a></td>
+          <td>{{item.mark}}</td>
+        </tr>
+      </table>
+  </body>
+</html>
+
+<script src="js/vue2.js"></script>
+<script src="js/vue-resource.js"></script>
+<script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        list:[
+            {tit:"首页",url:"main.html",mark:""},
+            {tit:"推广管理",url:"expand.html",mark:""},
+            {tit:"需求管理",url:"need.html",mark:""},
+            {tit:"新增推广",url:"new_expand.html",mark:""},
+            {tit:"数据管理",url:"data.html",mark:""},
+            {tit:"我要流量个人中心",url:"my.html",mark:""},
+            {tit:"我要流量任务详情页",url:"detail.html",mark:""},
+            {tit:"我要流量任务管理",url:"task.html",mark:""},
+            {tit:"我要流量主页",url:"main2.html",mark:""},
+            {tit:"我要流量账户明细",url:"account.html",mark:""},
+            {tit:"我要流量数据管理",url:"data2.html",mark:""},
+            {tit:"我要流量我要认证",url:"certification.html",mark:""},
+            
+          ]
+        }
+    });
+</script>

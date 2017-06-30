@@ -1,0 +1,13 @@
+{
+    "errno":0,
+    "list":[
+            {
+            "url":"#",
+            "img":"images/b1.jpg",
+            "txt":"111111托福：通向美好未来，需要的不只是许可，而是能力",
+            "option":"已完成",
+            "type":4,
+            "btn2_color":{"color": "#fe5850","borderColor": "#fe5850"}
+
+        }]
+}

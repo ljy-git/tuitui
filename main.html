@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name=viewport content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'>
+    <title>推推</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+  </head>
+  <body>
+    <div id="app" v-cloak >
+        <div class="h30"></div>
+        <div class="main_head">
+            <h3>今日曝光</h3>
+            <big>{{number[0]}}</big>
+            <h3>点击<span>{{number[1]}}</span>次　｜　转发<span>{{number[2]}}</span>次</h3>
+            <a href="my.html" class="mine"><i class="iconfont icon-touxiang"></i></a>
+        </div>
+        <hr class="line10">
+        <a href="#" class="btn1">我要推广</a>
+        <ul class="main_list">
+            <li v-for="item in list">
+                <a href="#"><lock-div :bg="item.img" class="left"></lock-div>
+                    <div class="right">
+                        <div class="txt">{{item.txt}}</div>
+                        <div  class="btn2" :class="{
+                        'ing_c':item.type==3,
+                        'done_c':item.type==4,
+                        'ready_c':item.type==1,
+                        'published_c':item.type==2
+                        }">{{item.option}}</div >
+                    </div></div>
+            </li>
+        </ul>
+        <infinite-loading  :on-infinite="onInfinite" ref="infiniteLoading">
+            <span slot="no-results">- 没有更多了 -</span>
+            <span slot="no-more">已经到末尾</span>
+        </infinite-loading>
+        <div class="h30"></div>
+
+    </div>
+  </body>
+</html>
+
+<script src="js/vue2.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/vue-resource.js"></script>
+<script src="js/common.js"></script>
+<script src="js/vue-infinite-loading.js"></script>
+
+<script>
+    const AJAX_PATH = "mocks/main.json";           
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        number:[12800,3200,828],
+        list:[
+            {
+            url:'#',
+            img:'images/b1.jpg',
+            txt:'托福：通向美好未来，需要的不只是许可，而是能力',
+            option:'确认中',
+            type:3,
+        },{
+            url:'#',
+            img:'images/b2.jpg',
+            txt:'金立携手达康书记，以#安全的名义#…',
+            option:'已完成',
+            type:4,
+        },{
+            url:'#',
+            img:'images/b1.jpg',
+            txt:'托福：通向美好未来，需要的不只是许可，而是能力',
+            option:'待发布',
+            type:1,
+        },{
+            url:'#',
+            img:'images/b2.jpg',
+            txt:'托福：通向美好未来，需要的不只是许可，而是能力',
+            option:'已发布',
+            type:2,
+        },
+    ],
+    
+  },
+
+methods: {
+        onInfinite:function () {
+            setTimeout(function() {
+                
+                var call = this.$http({
+                      method:'GET',
+                      url:AJAX_PATH
+                      });
+
+                call.then(function (e) {
+                    if(e.body.errno===0){
+                        this.list = this.list.concat(e.body.list);
+                        // 继续载入
+                        this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
+                    }else{
+                        // 结束载入 (末页)
+                        this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
+                    }
+                    
+                });
+            }.bind(this), 500);
+        }
+    }
+
+
+
+})
+
+
+
+</script>

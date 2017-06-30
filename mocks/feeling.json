@@ -1,0 +1,47 @@
+{
+    
+        "nav":[
+            {"tit":"读书记录","url":"record.html"},
+            {"tit":"读后感","url":"feeling.html"},
+            {"tit":"排行榜","url":"rank.html"},
+            {"tit":"活动","url":"act.html"},
+            {"tit":"个人","url":"my.html"}
+        ],
+        "nav_current":1,
+
+        "list":[
+            {
+                "txt":"读原研哉的这本《设计中的设计》。",
+                "pics":[
+                    {"img":"images/t1.jpg"},
+                    {"img":"images/t2.jpg"},
+                    {"img":"images/t1.jpg"},
+                    {"img":"images/t2.jpg"},
+                    {"img":"images/t3.jpg"}
+                ],
+                "book": {
+                    "img":"images/s29214183.jpg",
+                    "name":"设计中的设计",
+                    "auth":"(日)某某某",
+                    "time":"2015-10-12",
+                    "publish":"广西师范大学出版社"
+                },
+                "time":"2016-04-03-09:50",
+                "id":"345345454"
+            },
+
+            {
+                "txt":"读原研哉的这本《设计中的设计》，我自认是从门外汉的角度闲看。据说此书2003年在日本出版后，先后加印十七次，可见其在设计业内的受欢迎程度。作者撰写的初衷是“想写本一般人也能阅读的书”，对于一个平面设计师而言，用一本书的篇幅把“设计”这个词语表达明白，实属不易。",
+                "pics":[
+                    {"img":"images/s29214183.jpg"},
+                    {"img":"images/s29214183.jpg"},
+                    {"img":"images/s29214183.jpg"}
+                ],
+                "book": {"tit":"设计中的设计","auth":"(日)某某某","img":"images/s29214183.jpg","id":123456},
+                "time":"2016-04-03-09:50",
+                "id":"345345454"
+            }
+
+        ]
+      
+}

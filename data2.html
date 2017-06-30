@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name=viewport content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'>
+    <title>推推</title>
+    <link rel="stylesheet" href="css/element-ui.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+  </head>
+  <body>
+    <div id="app" v-cloak >
+        <!-- <div class="data_tit">全部任务</div> -->
+        
+        <div class="data2_head">
+            <el-progress type="circle" :percentage="per" :width="170">
+            </el-progress>
+            <div class="wrap cc">
+                <h3>今日收益</h3>
+                <big>{{money.in_money.toFixed(2)}}</big>
+                <h3>可用余额<span>{{money.surplus_money.toFixed(2)}}</span>元</h3>
+            </div>
+        </div>
+        
+        
+        <a href="#" class="data2_tit2">
+            <h2>累计收益</h2>
+            <h3>{{money.all_money.toFixed(2)}}元</h3>
+        </a>
+        <hr class="line10">
+        <div class="data2_tit2">
+            <h2>收益统计图</h2>
+            <h3>－<span>日收益</span></h3>
+        </div>
+        
+        <div class="data2_cont">
+            <div style="width:100%; height:220px;">
+            <chart :options="chart_option" style="width:100%; height:100%"></chart>
+            </div>
+        </div>
+        
+        
+    </div>
+  </body>
+</html>
+
+<script src="js/vue2.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/vue-resource.js"></script>
+<script src="js/common.js"></script>
+<script src="js/element-ui.js"></script>
+<script src="js/vue-echarts.js"></script>
+<script>
+    /*$(function () {
+        $('.data_tit').click(function() {
+            $('.msg').animate({height: '100%'}, 0)
+        });
+        $('.msg_bg').click(function() {
+            $('.msg').animate({height: 0}, 0)
+        });
+
+    })*/
+    
+           
+    Vue.component('chart', VueECharts);
+    var vm = new Vue({
+      el: '#app',
+
+      mounted: function() {
+
+
+        this.chart_option.xAxis[0].data = this.xAxis_data;
+        this.chart_option.series[0].data = this.series_data[0];
+      },
+      computed: {
+        per: function () {
+          return this.money.in_money/this.money.surplus_money*100
+        }
+      },
+
+      data: {
+
+        money:{
+            in_money:12.00,
+            surplus_money:34.00,
+            all_money:68,
+        },
+        
+
+        xAxis_data:['7号', '8号', '9号', '10号', '11号', '12号', '13号'],
+        series_data:[
+            [1, 20, 35, 33, 12, 43, 10],
+        ],
+        chart_option: {
+            
+            legend: {
+                data:[
+                {name:'收益',icon:'rect'},
+                {name:'点击',icon:'rect'},
+                {name:'转发',icon:'rect'}
+                ],
+                bottom:0,
+                itemGap:20
+            },
+            grid: {
+                x: 36,
+                y: 10,
+                x2: 16,
+                y2: 60,
+                borderWidth: 0
+            },
+            calculable: true,
+            xAxis: [{
+                type: 'category',
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLine: {
+                    show: false,
+                },
+                axisLabel: {
+                    interval: 0,
+                    textStyle: {color: '#999'}
+                },
+                boundaryGap: false,
+                data: []
+            }],
+            yAxis: [{
+                type: 'value',
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: '#eee'
+                    }
+                },
+                axisLine: {
+                    show: false
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {color: '#999'}
+                }
+            }],
+            series: [{
+                type: 'line',
+                symbol: "emptyCircle",
+                symbolSize: 6,
+                smooth: true,
+                data: [],
+                itemStyle: {
+                    normal: {
+                        color: '#19b4fd', //点的颜色
+                        lineStyle: {
+                            color: '#19b4fd'
+                        }, //线条颜色
+                        label: {
+                            show: false,
+                            textStyle: {
+                                fontSize: 12
+                            }
+                        }
+                    }
+                }
+
+            }]
+
+          }
+      }
+    })
+
+
+
+</script>

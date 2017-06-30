@@ -1,0 +1,47 @@
+{
+	"filter_bar":{
+	    "by_nature":0,
+	    "by_price":1,
+	    "by_score":0,
+	    "by_dist":0
+	},
+	"list": [
+		{
+	        "tit": "排序芙蓉华天大酒店",
+	        "score": 4.3,
+	        "price": 500.00,
+	        "pic": "images/c1.jpg",
+	        "id": "001",
+	        "comment": 2148,
+	        "stars": "五星级",
+	        "distance": "120m",
+	        "district": "芙蓉区",
+	        "flag": {
+	            "clock": true,
+	            "zzrz": true,
+	            "znms": true,
+	            "bjyh": false,
+	            "jysm": true
+	        },
+	        "flag_full": false
+	    },{
+	        "tit": "排序芙蓉华天大酒店",
+	        "score": 4.3,
+	        "price": 500.00,
+	        "pic": "images/c1.jpg",
+	        "id": "001",
+	        "comment": 2148,
+	        "stars": "五星级",
+	        "distance": "120m",
+	        "district": "芙蓉区",
+	        "flag": {
+	            "clock": true,
+	            "zzrz": true,
+	            "znms": true,
+	            "bjyh": false,
+	            "jysm": true
+	        },
+	        "flag_full": false
+	    }
+	]
+}

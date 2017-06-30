@@ -1,0 +1,10 @@
+{
+    "errno":0,
+    "list":[
+            {"time":"4月23日 12:30", "txt":"zzz，感受美好未来", "number":[1,2,3], "type":2 },
+            {"time":"4月23日 12:30", "txt":"zzz，感受美好未来", "number":[1,2,3], "type":2 },
+            {"time":"4月23日 12:30", "txt":"ssssss，感受美好未来", "number":[1,2,3], "type":1 },
+            {"time":"4月23日 12:30", "txt":"ssssss，感受美好未来", "number":[1,2,3], "type":1 },
+            {"time":"4月23日 12:30", "txt":"ssssss，感受美好未来", "number":[1,2,3], "type":1 }
+        ]
+}
